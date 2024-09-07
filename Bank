@@ -1,0 +1,52 @@
+#include<iostream>
+#include<string>
+using namespace std;
+class Bank
+{
+private:
+	string depositor;
+	int Accountnumber;
+	double Balance;
+public:
+	Bank(string d, int a, double b)
+	{
+		depositor = d;
+		Accountnumber = a;
+		Balance = b;
+	}
+	void set_deposit(double dd)
+	{
+		Balance += dd;
+	}
+	double get_deposit()
+	{
+		return Balance;
+	}
+	void withdraw(double w)
+	{
+		if (Balance > w)
+		{
+			Balance -= w;
+		}
+		else
+		{
+			cout << "you does not have enough money" << endl;
+		}
+	}
+	void print()
+	{
+		cout << "name is : " << depositor << endl;
+		cout << "Account no is : " << Accountnumber << endl;
+
+		cout << "Balance is : " << Balance << endl;
+	}
+};
+int main()
+{
+	Bank b("subrata", 100, 300.00);
+	b.print();
+	b.set_deposit(500.00);
+	b.print();
+	b.withdraw(200.00);
+	b.print();
+}

@@ -1,0 +1,84 @@
+  #include<iostream>
+  #include<string>
+  #include<cstring>
+  using namespace std;
+  struct linklist
+  {
+  	int id;
+  	string name;
+  	string grade;
+  	linklist *next;
+  };
+  int main()
+  {
+  	int a, b;
+  	int length;
+  	linklist *head;
+  	head = NULL;
+  	head = new linklist;
+  	linklist *node = head;
+  	cout << "input the number of index  ";
+  	cin >> length;
+  	for (int i = 0; i < length; i++)
+  	{
+  		cout << "Input name  ";
+  		cin >> node->name;
+  		cout << "input Id  ";
+  		cin >> node->id;
+  		cout << "input grade  ";
+  		cin >> node->grade;
+  		node->next = NULL;
+  		node->next = new linklist;
+  		node = node->next;
+  	}
+  	cout << "Input the index number where you want to insert  ";
+  	cin >> b;
+  	if (b == 1)
+  	{
+  		int d;
+  		linklist *temp = new linklist;
+  		node->next = head;
+  		head = temp;
+  		temp->next = node->next;
+  		cout << "Input name  ";
+  		cin >> temp->name;
+  		cout << "input Id  ";
+  		cin >> temp->id;
+  		cout << "input grade  ";
+  		cin >> temp->grade;
+  	}
+  	else if (b != 1 && b <= length)
+  	{
+  		for (int i = 0; i < b; i++)
+  		{
+  			node->next = head;
+  			node = node->next;
+  		}
+  		linklist *temp = new linklist;
+  		temp->next = node->next;
+  		node->next = temp;
+  		cout << "Input name  ";
+  		cin >> temp->name;
+  		cout << "input Id  ";
+  		cin >> temp->id;
+  		cout << "input grade  ";
+  		cin >> temp->grade;
+  	}
+  	else
+  	{
+  		cout << "you have to input the index number between 1 to" << length << endl;
+  	}
+  	node->next = head;
+  	node = node->next;
+  	for (int i = 0; i<= length; i++)
+  	{
+  		cout << "Show name  ";
+  		cout << node->name << endl;
+  		cout << "Show Id  ";
+  		cout << node->id << endl;
+  		cout << "Show grade  ";
+  		cout << node->grade << endl;
+  		node = node->next;
+  	}
+  
+  }

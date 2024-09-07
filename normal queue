@@ -1,0 +1,61 @@
+  #include<iostream>
+  using namespace std;
+  class queue
+  {
+  private:
+  	int arr[5], front, rear, size;
+  public:
+  	queue()
+  	{
+  		rear = -1;
+  		front = -1;
+  	}
+  	void inqueue(int x)
+  	{
+  		if (rear == 4)
+  		{
+  			cout << "Queue Full." << endl;
+  		}
+  		else
+  
+  		{
+  			rear++;
+  			arr[rear] = x;
+  			if (front == -1)
+  			{
+  				front++;
+  			}
+  		}
+  	}
+  	int dequeue()
+  	{
+  		if (front == -1)
+  		{
+  			cout << "Queue Empty." << endl;
+  		}
+  		else
+  		{
+  			int x = arr[front];
+  			front++;
+  			return x;
+  		}
+  	}
+  };
+  int main()
+  {
+  	queue q;
+  	q.dequeue();
+  	q.inqueue(5);
+  	q.inqueue(7);
+  	q.inqueue(9);
+  	q.inqueue(4);
+  	q.inqueue(1);
+  	q.inqueue(8);
+  	q.dequeue();
+  	q.dequeue();
+  	q.dequeue();
+  	q.dequeue();
+  	q.dequeue();
+  	q.dequeue();
+  	
+  }

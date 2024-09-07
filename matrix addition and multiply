@@ -1,0 +1,34 @@
+#include <iostream>
+
+using namespace std;
+
+int main()
+{
+    int arrayA[2][2]={{1,2},{3,4}};
+    int arrayB[2][2]={{1,2},{3,4}};
+    int arrayC[2][2]={{0,0},{0,0}};;
+
+    for(int i = 0; i < 2; i++)
+     {
+        for(int j = 0; j<2 ; j++)
+         {
+            arrayC[i][j] = arrayA[i][j] + arrayB[i][j];
+            cout<<arrayC[i][j]<< "\t";
+         }
+         cout<<endl;
+     }
+      cout<<endl;
+int sum;
+for (int i = 0; i < 2; i++)
+ {
+    for (int j = 0; j < 2; j++)
+     {
+         sum=0;
+        for (int k = 0; k < 2; k++)
+         {
+            sum += arrayA[i][k] * arrayB[k][j];
+        }
+        cout<<sum<< "\t ";
+     }cout<<endl;
+ }cout<<endl;
+}

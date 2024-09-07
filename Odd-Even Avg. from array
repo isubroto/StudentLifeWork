@@ -1,0 +1,30 @@
+#include<iostream>
+using namespace std;
+int main()
+{
+    int b[5];
+    int countodd=0,counteven=0;
+    int odd=0;
+    int even=0;
+    for(int a=0;a<5;a++)
+    {
+        cin>>b[a];
+    }
+    for(int a=0;a<5;a++)
+    {
+        if (b[a]%2==0)
+        {
+            even+=b[a];
+            counteven++;
+        }
+        else if(b[a]%2!=0)
+        {
+            odd+=b[a];
+            countodd++;
+        }
+        else
+        break;
+    }
+    cout<<"Even Avg"<<(even/counteven)<<endl;
+    cout<<"Odd Avg"<<(odd/countodd)<<endl;
+}

@@ -1,0 +1,74 @@
+#include <iostream>
+#define max 3
+using namespace std;
+class stack
+{
+public:
+	int arr[max];
+	int top;
+	stack()
+	{
+		top = -1;
+	}
+	void push(int x)
+	{
+		if (top == max - 1)
+		{
+			cout << "Stack Overflow" << endl;
+		}
+		else
+		{
+			top++;
+			arr[top] = x;
+			cout << x << "is pushed" << endl;
+		}
+	}
+	void pop()
+	{
+		if (top != -1)
+		{
+			top--;
+			cout << arr[top] << " poped" << endl;
+		}
+		else
+		{
+			cout << "Stack Underflow" << endl;
+		}
+	}
+	void topElement()
+	{
+		cout << "The top element is : " << arr[top];
+	}
+	void topIndex()
+	{
+		cout << "top:  " << top << endl;
+	}
+
+	void isEmpty()
+	{
+		if (top == -1)
+		{
+			cout << "Is Empty" << endl;
+		}
+		else
+		{
+			cout << "Not Empty" << endl;
+		}
+	}
+};
+
+int main()
+{
+	stack s1;
+	s1.push(9);
+	s1.push(7);
+	s1.push(8);
+	s1.push(4);
+	s1.pop();
+	s1.push(5);
+	s1.pop();
+	s1.pop();
+	s1.topElement();
+	s1.topIndex();
+
+}

@@ -1,0 +1,57 @@
+    .model small
+    .stack 100h
+    .data
+    x db ?
+    .code
+    main proc
+        mov ah,@data
+        mov dx,ax
+        
+        mov ah,2
+        mov bl,80h
+        mov dl,bl
+        int 21h
+        
+        
+        
+        mov ah,2
+        mov cl,0
+        mov al,0FFh
+        
+        p1:
+        
+        cmp bl,al
+        
+        jg end
+        jl pr1
+        
+        pr1: 
+            mov ah,2
+            add bl,1h
+            mov dl,bl
+            int 21h
+            
+            add cl,1
+            
+            cmp cl,10
+            jl p1
+            jg p2
+            
+        p2:
+            mov ah,2
+            mov dl,0ah
+            int 21h
+            
+            mov dl,0dh
+            int 21h
+            mov cl,0
+            jmp p1
+            
+             
+        
+        end:
+        
+        mov ah,4ch
+        int 21h
+        main endp
+    end

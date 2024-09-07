@@ -1,0 +1,19 @@
+#include<iostream>
+#include<string>
+
+using namespace std ;
+
+int main ()
+{
+    string a1,a2,total;
+
+    cout<< " string1 :" ;
+    cin.getline(a1);
+
+    cout<< "string2 :" ;
+    cin.getline(a2);
+
+    total=a1+a2;
+
+    cout<< "Output :" <<total<<endl;
+}

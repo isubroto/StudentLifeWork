@@ -1,0 +1,41 @@
+#include<iostream>
+using namespace std;
+int main()
+{
+    int arr[10];
+    int high,mid,low,searc;
+    low=0;
+    high=9;
+    mid=(high+low)/2;
+    for(int i=0;i<10;i++)
+    {
+        cin >> arr[i];
+    }
+    cout<<"Input the number you want to search ";
+    cin>>searc;
+
+    while(low <=high && arr[mid]!= searc)
+    {
+
+        if(searc<arr[mid])
+        {
+            high=mid-1;
+        }
+        else
+        {
+             low =mid+1;
+        }
+        mid=(high+low)/2;
+    }
+    if(arr[mid]==searc)
+    {
+        cout<<"Data is a in"<<mid<<"index"<<endl;
+    }
+    else
+    {
+        cout<<"Data is a not in index"<<endl;
+    }
+
+   return 0;
+}
+

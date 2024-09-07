@@ -1,0 +1,115 @@
+ #include<iostream>
+  #include<string>
+  #include<cstring>
+  using namespace std;
+ struct linklist
+  {
+	 int id;
+	 string name;
+	 string grade;
+	 linklist *next;
+	 };
+ int main()
+  {
+	  int  b, c = 0, d;
+	 int length;
+	 linklist *head;
+	 head = NULL;
+	 head = new linklist;
+	 linklist *node = head;
+	 cout << "input the number of index  ";
+	 cin >> length;
+	 for (int i = 0; i < length; i++)
+		  {
+		 cout << "Input name  ";
+		 cin >> node->name;
+		 cout << "input Id  ";
+		 cin >> node->id;
+		 cout << "input grade  ";
+		 cin >> node->grade;
+		 node->next = new linklist;
+		 node = node->next;
+		 node->next = NULL;
+		 }
+	 cout << "Input the id number you want to Scearch  ";
+	 cin >> b;
+	 node->next = head;
+	 for (int i = 0; i < length; i++)
+	 {
+		 node = node->next;
+		 if (node->id == b)
+		 {
+			 cout << "Show name  ";
+			 cout << node->name << endl;
+			 cout << "Show Id  ";
+			 cout << node->id << endl;
+			 cout << "Show grade  ";
+			 cout << node->grade << endl;
+		 }
+		 else
+			 continue;
+	 }
+	 node->next = head;
+	 for (int i = 0; i < length; i++)
+	 {
+		 node = node->next;
+		 if (node->next != NULL)
+		 {
+				 c++;
+		 }
+		 else
+			 continue;
+	 }
+	 cout << "The Number of node is : " << c << endl;
+	 cout << "Input the index number you want to insert  ";
+	 cin >> d;
+	 if (d == 1)
+		  {
+		 linklist *temp = new linklist;
+		 node->next = head;
+		 head = temp;
+		 temp->next = node->next;
+		 cout << "Input name  ";
+		 cin >> temp->name;
+		 cout << "input Id  ";
+		 cin >> temp->id;
+		 cout << "input grade  ";
+		 cin >> temp->grade;
+		 }
+	  if (d != 1 && d <= length)
+		  {
+			  node->next = head;
+		 for (int i = 0; i < b; i++)
+			  {
+			 node = node->next;
+			 }
+
+		 linklist *temp = new linklist;
+		 temp->next = node->next;
+		 node->next = temp;
+		 cout << "Input name  ";
+		 cin >> temp->name;
+		 cout << "input Id  ";
+		 cin >> temp->id;
+		 cout << "input grade  ";
+		 cin >> temp->grade;
+		 }
+	 else
+		  {
+		 cout << "you have to input the index number between 1 to" << length << endl;
+		 }
+	 cout << "Desplay All value of node" << endl;
+	 node->next = head;
+	 node = node->next;
+	 for (int i = 0; i < length; i++)
+		  {
+		 cout << "Show name  ";
+		 cout << node->name << endl;
+		 cout << "Show Id  ";
+		 cout << node->id << endl;
+		 cout << "Show grade  ";
+		 cout << node->grade << endl;
+		 node = node->next;
+		 }
+	 
+		 }

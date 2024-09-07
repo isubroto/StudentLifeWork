@@ -1,0 +1,14 @@
+#include<iostream>
+using namespace std;
+int main()
+{
+    int b[5];
+    for(int a=0;a<5;a++)
+    {
+        cin>>b[a];
+    }
+      for(int a=4;a>=0;a--)
+    {
+        cout<<b[a];
+    }
+}

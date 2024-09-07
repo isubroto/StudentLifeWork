@@ -1,0 +1,83 @@
+  #include<iostream>
+  using namespace std;
+  class circuler_queue
+  {
+  private:
+  	int arr[5], front, rear, size;
+  public:
+  	circuler_queue()
+  	{
+  		rear = -1;
+  		front = -1;
+  	}
+  	void inqueue(int x)
+  	{
+  		if ((front == 0 && rear == 3) || front == rear + 1)
+  		{
+  			cout << "Queue Overflow" << endl;
+  		}
+  		else if (front == -1)
+  		{
+  			front = 0;
+  			rear = 0;
+  			cout << "Set front=0" << endl << "Set rear=0" << endl;
+  		}
+  		else
+  		{
+  			if (rear == 4)
+  			{
+  				rear = 0;
+  				cout << "Set rear=0" << endl;
+  			}
+  			else
+  			{
+  				rear++;
+  				arr[rear] = x;
+  				cout << "Input" << x << endl;
+  			}
+  		}
+  	}
+  	int dequeue()
+  	{
+  		if (front == -1)
+  		{
+  			cout << "Queue Empty." << endl;
+  		}
+  		else if (front == rear)
+  		{
+  			front = -1;
+  			rear = -1;
+  			cout << "Set front=-1" << endl << "rear=-1" << endl;
+  		}
+  		else
+  		{
+  			if (front == 4)
+  			{
+  				front = 0;
+  				cout << "Set front=0" << endl;
+  			}
+  			else
+  				front++;
+  			cout << "Front is" << arr[front] << endl;
+  			return 0;
+  		}
+  	}
+  };
+  int main()
+  {
+  	circuler_queue q;
+  	q.dequeue();
+  	q.inqueue(5);
+  	q.inqueue(7);
+  	q.inqueue(9);
+  	q.inqueue(4);
+  	q.inqueue(1);
+  	q.inqueue(8);
+  	q.dequeue();
+  	q.dequeue();
+  	q.dequeue();
+  	q.dequeue();
+  	q.dequeue();
+  	q.dequeue();
+  	
+  }

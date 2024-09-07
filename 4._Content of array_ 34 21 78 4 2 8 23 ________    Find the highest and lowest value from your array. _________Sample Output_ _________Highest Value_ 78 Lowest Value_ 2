@@ -1,0 +1,37 @@
+/*								4.	Content of array: 34 21 78 4 2 8 23
+								    Find the highest and lowest value from your array.
+									Sample Output:
+									Highest Value: 78
+									Lowest Value: 2														*/
+#include<iostream>
+using namespace std;
+int main()
+{
+	int arr[10];
+	int max, min;
+	for (int i = 0; i < 10; i++)
+	{
+		cin >> arr[i];
+	}
+	max = arr[0];
+	min = arr[0];
+	for (int i = 0; i < 10; i++)
+	{
+		if (arr[i] > max)
+		{
+			max = arr[i];
+		}
+		else
+			continue;
+	}
+	for (int i = 0; i < 10; i++)
+	{
+		if (arr[i] < min)
+		{
+			min = arr[i];
+		}
+		else
+			continue;
+	}
+	cout << "Highest Value : " << max << endl << "Lowest Value : " << min << endl;
+}

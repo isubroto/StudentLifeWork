@@ -1,0 +1,80 @@
+#include<iostream>
+#include<string>
+using namespace std;
+class student
+{
+	string stdID;
+	string stdName;
+	int quiz[3];
+public:
+	student()
+	{
+
+	}
+	void setStudentID(string id)
+	{
+		stdID = id;
+	}
+	string getStudentID()
+	{
+		return stdID;
+	}
+	void setStudentName(string name)
+	{
+		stdName = name;
+	}
+	string getStudentName()
+	{
+		return stdName;
+	}
+	void setQuizMark()
+	{
+		for (int i = 0; i < 3; i++)
+		{
+			cin >> quiz[i];
+		}
+	}
+	void getQuizMark()
+	{
+		int temp;
+		double avg;
+		for (int i = 0; i < 3; i++)
+		{
+			for ( int j = i + 1; j < 3; j++)
+			{
+				if (quiz[i] > quiz[j])
+				{
+					temp = quiz[i];
+					quiz[i] = quiz[j];
+				    quiz[j] = temp;
+				}
+			}
+		}
+		avg = (quiz[1] + quiz[2]) / 2;
+		cout << "avg is " << avg << endl;
+	}
+
+};
+
+int main()
+{
+	student s[10];
+	string id, name;
+	for (int i = 0; i < 10; i++)
+	{
+		cin >> id ;
+		s[i].setStudentID(id);
+		cin >> name;
+		s[i].setStudentName(name);
+		s[i].setQuizMark();
+	}
+
+	for (int i = 0; i < 10; i++)
+	{
+		cout << "no-" << i+1 << endl;
+		cout << s[i].getStudentID() << endl;
+		cout <<  s[i].getStudentName() << endl;
+		s[i].getQuizMark();
+	}
+	return 0;
+}

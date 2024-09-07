@@ -1,0 +1,16 @@
+#include<iostream>
+#include<string>
+
+using namespace std;
+
+int main ()
+{
+    string s1,s2;
+    int n1,n2;
+    getline(cin, s1);
+    getline(cin, s2);
+    cout <<"input the position";
+    cin>>n1>>n2;
+    cout<< "Output : ";
+    cout<<s1.substr(n1,n2)<<endl;
+}

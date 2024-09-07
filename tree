@@ -1,0 +1,102 @@
+#include<iostream>
+using namespace std;
+struct tree
+{
+	int data;
+	tree *leftnode;
+	tree *rightnode;
+};
+tree *maketree(int x)
+{
+	tree *newnode = new tree;
+	newnode->data = x;
+	newnode->leftnode = NULL;
+	newnode->rightnode = NULL;
+	return newnode;
+}
+tree *insertv(tree *ptr, int value)
+{
+	if (ptr == NULL)
+	{
+		ptr = maketree(value);
+	}
+	else if (value < ptr->data)
+	{
+		ptr->leftnode = insertv(ptr->leftnode, value);
+	}
+	else if (value > ptr->data)
+	{
+		ptr->rightnode = insertv(ptr->rightnode, value);
+	}
+	return ptr;
+}
+void preorder(tree *ptr)
+{
+	if (ptr != NULL)
+	{
+		cout << ptr->data << " ";
+		preorder(ptr->leftnode);
+		preorder(ptr->rightnode);
+	}
+}
+void inorder(tree *ptr)
+{
+	if (ptr != NULL)
+	{
+		inorder(ptr->leftnode);
+		cout << ptr->data << " ";
+		inorder(ptr->rightnode);
+	}
+}
+void postorder(tree *ptr)
+{
+	if (ptr != NULL)
+	{
+		postorder(ptr->leftnode);
+		postorder(ptr->rightnode);
+		cout << ptr->data << " ";
+	}
+}
+tree *sarch(tree *ptr, int value)
+{
+	if (value < ptr->data)
+	{
+		ptr = sarch(ptr->leftnode, value);
+	}
+	else if (value > ptr->data)
+	{
+		ptr = sarch(ptr->rightnode, value);
+	}
+	return ptr;
+}
+int main()
+{
+	int x, n;
+	cout << "Input The number of nodes";
+	cin >> n;
+	tree *node = NULL;
+	cout << "input the value\n";
+	for (int i = 0; i < n; i++)
+	{
+		cin >> x;
+		node = insertv(node, x);
+	}
+	cout << "preorder\n";
+	preorder(node);
+	cout << endl;
+	cout << "inorder\n";
+	inorder(node);
+	cout << endl;
+	cout << "postorder\n";
+	postorder(node);
+	cout << endl;
+	cout << "tergate user ";
+	cin >> x;
+	tree *temp = sarch(node, x);
+	if (temp == NULL)
+	{
+		cout << "item not found\n";
+	}
+	else
+		cout << "item found\n";
+}
